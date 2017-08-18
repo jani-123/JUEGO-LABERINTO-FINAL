@@ -137,7 +137,7 @@ for (var i = 0 ; i < mapas.length;  i++)
 var tdActual;
 
 function laberintoCrea(){
-	tablero.innerHTML='';
+	limpiar();
 	play.style.display="none";
     tutorial.style.display="none";
     creditos.style.display="none";
@@ -173,6 +173,7 @@ function laberintoCrea(){
 			    git.setAttribute("class","entrada");
 			    git.setAttribute("src","assets/git/entrada.gif");
 			    td.appendChild(git);
+
 			}
 
 			filas[i][j]=td;
@@ -180,6 +181,11 @@ function laberintoCrea(){
 			table.appendChild(tr);
     }
 		tablero.appendChild(table);
+}
+
+function limpiar()
+{
+	tablero.innerHTML='';
 }
 
 play.onclick = function(){
@@ -192,13 +198,9 @@ tutorial.onclick = function(){
     tutorial.style.display="none";
     creditos.style.display="none";
 	if(instruccion.style.display === 'none')
-	{
 		instruccion.style.display = 'block';
-	}
 	else
-	{
 		instruccion.style.display = 'none';
-	}
 }
 
 creditos.onclick = function(){
@@ -206,14 +208,9 @@ creditos.onclick = function(){
     tutorial.style.display="none";
     creditos.style.display="none";
 	if(credito_main.style.display === 'none')
-	{
 		credito_main.style.display = 'block';
-
-	}
 	else
-	{
 		credito_main.style.display = 'none';
-	}
 }
 
 mainTutorial.onclick = function(){
@@ -235,7 +232,6 @@ mainCredito.onclick = function(){
 	}
 }
 
-
 var teclas = {
   UP: 38,
   DOWN: 40,
@@ -247,7 +243,6 @@ document.addEventListener("keydown",teclado);
 
 function teclado(evento)
 {
-
 	switch(evento.keyCode){
 		case teclas.UP:
            arriba(1,0);
@@ -261,9 +256,7 @@ function teclado(evento)
         case teclas.RIGHT:
            derecha(0,1);
         break;
-
 	}
-
 }
 
 var time;
@@ -276,21 +269,26 @@ function arriba(a,b)
     }
 
     if(  tdActual.x == 0 || tdActual.y == 0 || tdActual.x == mapa.length - 1 || tdActual.y == mapa[0].length -1  ){
-      
       laberintoCrea();
       clearTimeout(time);
       return;
     }
 
 	if(mapa[tdActual.x-a][tdActual.y+b] == "_" )
-		{
-			var imagen = document.createElement("img");
-			imagen.src = "assets/img/pelota.png";
-			filas[tdActual.x][tdActual.y].removeChild(filas[tdActual.x][tdActual.y].firstChild);
-			tdActual.x = tdActual.x-a;
-			filas[tdActual.x][tdActual.y].appendChild(imagen);
-		}
+	{
+		var imagen = document.createElement("img");
+		imagen.src = "assets/img/pelota.png";
+		filas[tdActual.x][tdActual.y].removeChild(filas[tdActual.x][tdActual.y].firstChild);
+		tdActual.x = tdActual.x-a;
+		filas[tdActual.x][tdActual.y].appendChild(imagen);
+	}
 	time = setTimeout(function(){ arriba(a, b) }, 150);
+	if(mapa[tdActual.x-a][tdActual.y+b] == "W")
+	{
+		laberintoCrea();
+		clearTimeout(time);
+		return;
+	}
 }
 
 function abajo(a,b)
