@@ -1,9 +1,12 @@
 var play=document.getElementById("play");
 var tutorial=document.getElementById("tutorial");
-var creditos=document.getElementById("creditos");
-
+var creditos=document.getElementById("creditos"); 
+var mainTutorial = document.getElementById('main'); 
+var mainCredito = document.getElementById('main1');
+var instruccion = document.getElementById('tutoriales');
+var credito_main = document.getElementById('credito');
 var tablero=document.getElementById("tablero");
-mapa=[  "                                               ",
+mapa=[  "_______________________________________________",
 		"_______________________________________________",
 		"_______________________________________________",
 		"______**o________***________________**W________",
@@ -25,7 +28,7 @@ mapa=[  "                                               ",
 		"____________________***________________________",
 		"___________________*_**________________________",
 		"_______________________________________________",
-		"                                               "];
+		"_______________________________________________"];
 
 var filas = new Array(mapa.length);
 for (var i = 0; i < filas.length; i++) 
@@ -36,6 +39,7 @@ for (var i = 0; i < filas.length; i++)
 var tdActual;
 
 function laberintoCrea(){
+	tablero.innerHTML='';
 	play.style.display="none";
     tutorial.style.display="none";
     creditos.style.display="none";
@@ -51,7 +55,7 @@ function laberintoCrea(){
 			td.setAttribute("class","td1");
 			if(mapa[i][j]=="*")
 			{
-			    td.setAttribute("style", "background-color: purple;");
+			    td.setAttribute("id","platillo");
 			}
 			if(mapa[i][j]=="_")
 			{
@@ -67,7 +71,10 @@ function laberintoCrea(){
 		    }
 			if(mapa[i][j]=="W")
 			{
-			    td.setAttribute("style", "background-color: green;");
+			    var git = document.createElement("img");
+			    git.setAttribute("class","entrada");
+			    git.setAttribute("src","assets/git/entrada.gif");
+			    td.appendChild(git);
 			}
 
 			filas[i][j]=td;
@@ -80,6 +87,56 @@ function laberintoCrea(){
 play.onclick = function(){
 	laberintoCrea();
 }
+
+tutorial.onclick = function(){
+	
+	play.style.display="none";
+    tutorial.style.display="none";
+    creditos.style.display="none";
+	if(instruccion.style.display === 'none')
+	{
+		instruccion.style.display = 'block';
+	}
+	else
+	{
+		instruccion.style.display = 'none';
+	}
+}
+
+creditos.onclick = function(){
+	play.style.display="none";
+    tutorial.style.display="none";
+    creditos.style.display="none";
+	if(credito_main.style.display === 'none')
+	{
+		credito_main.style.display = 'block';
+
+	}
+	else
+	{
+		credito_main.style.display = 'none';
+	}
+}
+
+mainTutorial.onclick = function(){
+	if(instruccion.style.display === 'block')
+	{
+		instruccion.style.display = 'none';
+		play.style.display = "block";
+        tutorial.style.display = "block";
+        creditos.style.display = "block";
+	}
+}
+mainCredito.onclick = function(){
+	if(credito_main.style.display === 'block')
+	{
+		credito_main.style.display = 'none';
+		play.style.display = "block";
+        tutorial.style.display = "block";
+        creditos.style.display = "block";
+	}
+}
+
 
 var teclas = {
   UP: 38,
@@ -120,6 +177,13 @@ function arriba(a,b)
       return;
     }
 
+    if(  tdActual.x == 0 || tdActual.y == 0 || tdActual.x == mapa.length - 1 || tdActual.y == mapa[0].length -1  ){
+      
+      laberintoCrea();
+      clearTimeout(time);
+      return;
+    }
+
 	if(mapa[tdActual.x-a][tdActual.y+b] == "_" )
 		{
 			var imagen = document.createElement("img");
@@ -128,12 +192,19 @@ function arriba(a,b)
 			tdActual.x = tdActual.x-a;
 			filas[tdActual.x][tdActual.y].appendChild(imagen);
 		}
-	time = setTimeout(function(){ arriba(a, b) }, 400);
+	time = setTimeout(function(){ arriba(a, b) }, 150);
 }
 
 function abajo(a,b)
 {
 	if( mapa[tdActual.x+a][tdActual.y+b]=="*" ){
+      clearTimeout(time);
+      return;
+    }
+
+    if(  tdActual.x == 0 || tdActual.y == 0 || tdActual.x == mapa.length - 1 || tdActual.y == mapa[0].length -1  ){
+      
+      laberintoCrea();
       clearTimeout(time);
       return;
     }
@@ -145,7 +216,7 @@ function abajo(a,b)
 			tdActual.x = tdActual.x+1;
 			filas[tdActual.x][tdActual.y].appendChild(imagen);
 		}
-	time = setTimeout(function(){ abajo(a, b) }, 400);
+	time = setTimeout(function(){ abajo(a, b) }, 150);
 }
 
 function izquierda(a,b)
@@ -154,6 +225,13 @@ function izquierda(a,b)
       clearTimeout(time);
       return;
     }
+    if(  tdActual.x == 0 || tdActual.y == 0 || tdActual.x == mapa.length - 1 || tdActual.y == mapa[0].length -1  ){
+      
+      laberintoCrea();
+      clearTimeout(time);
+      return;
+    }
+
 	if(mapa[tdActual.x][tdActual.y-1] == "_" )
 		{
 			var imagen = document.createElement("img");
@@ -162,7 +240,7 @@ function izquierda(a,b)
 			tdActual.y = tdActual.y-1;
 			filas[tdActual.x][tdActual.y].appendChild(imagen);
 		}
-	time = setTimeout(function(){ izquierda(a, b) }, 400);
+	time = setTimeout(function(){ izquierda(a, b) }, 150);
 }
 
 function derecha(a,b)
@@ -172,6 +250,12 @@ function derecha(a,b)
       return;
     }
 
+    if(  tdActual.x == 0 || tdActual.y == 0 || tdActual.x == mapa.length - 1 || tdActual.y == mapa[0].length -1  ){
+      
+      laberintoCrea();
+      clearTimeout(time);
+      return;
+    }
 	if(mapa[tdActual.x+a][tdActual.y+b] == "_" )
 		{
 			var imagen = document.createElement("img");
@@ -180,7 +264,7 @@ function derecha(a,b)
 			tdActual.y = tdActual.y+b;
 			filas[tdActual.x][tdActual.y].appendChild(imagen);
 		}
-		time = setTimeout(function(){ derecha(a, b) }, 400);
+		time = setTimeout(function(){ derecha(a, b) }, 150);
 }
 
 	

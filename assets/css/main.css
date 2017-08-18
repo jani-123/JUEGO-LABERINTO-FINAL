@@ -1,10 +1,10 @@
 /*
 Colors: 
 #E54E79;
-#E56385; 
+#E56385;  
 #00B2A9;
 #75726C;
-#EDE9E2
+#EDE9E2 
 */
 body{
 	font-family: 'Raleway', sans-serif;
@@ -16,7 +16,9 @@ nav{
 }
 .brand-logo img{
 	width: 60px;
+	height: 50px;
 	margin-top: 10px;
+
 }
 .principal{
 	height: 100vh;
@@ -64,18 +66,39 @@ nav{
 #tablero{
 	position: relative;
 	height: auto;
-	background-color: #EDE9E2;
 	padding: 40px;
+	background-image: url('../img/galaxia.jpg');
+	background-repeat: no-repeat;
+	background-size: 500%;
 }
 #tablero button{
 	display: block;
 	background-color: #E54E79;
 	border: 0px;
 	border-radius: 5px;
+	border: 5px solid #b71c1c;
+	font-family: cursive;
+	height: 50px;
+}
+#tablero button:hover{
+    background-color: #b71c1c;
+}
+#tablero h3{
+	color: white;
+	text-shadow: 10px 10px 12px #FF0000;
+	font-family: cursive;
+	font-size: 4em;
 }
 .td1{
 	position: relative;
 	background-size: 10px 10px;
+	
+}
+#platillo{
+	background-image: url('../git/49258.gif');
+}
+.entrada{
+	background-size: 100%;
 }
 
 img{
@@ -84,6 +107,69 @@ img{
     left: 0px;
 	width: 20px;
 	height: 20px;
+}
+#tutoriales{
+    background-color: #424242;
+	border: 2px solid #212121;
+	/*display: none;*/
+}
+#tutoriales h4{
+
+	font-family: cursive;
+	color: white;
+	text-shadow: 6px 6px 8px #FF0000;
+	font-size: 5em;
+}
+#tutoriales p{
+	font-family: Roboto;
+	font-size: 2em;
+	color: white;
+	text-align: center;
+}
+#tutoriales #main{
+	background-color: #E54E79;
+	border: 0px;
+	border-radius: 5px;
+	border: 5px solid #b71c1c;
+	font-family: cursive;
+	height: 50px;
+	position: relative;
+	bottom: 0;
+	right: 0;
+}
+#tutoriales #main:hover{
+	background-color: #b71c1c;
+}
+#credito{
+	background-color: #424242;
+	border: 2px solid #212121;
+}
+#credito h4{
+    text-align: center;
+	font-family: cursive;
+	color: white;
+	text-shadow: 6px 6px 8px #FF0000;
+	font-size: 5em;
+}
+#credito p{
+	font-family: Roboto;
+	font-size: 1em;
+	color: white;
+	text-align: center;
+}
+#credito #main{
+	background-color: #E54E79;
+	border: 0px;
+	border-radius: 5px;
+	border: 5px solid #b71c1c;
+	font-family: cursive;
+	height: 50px;
+	position: relative;
+	bottom: 0;
+	right: 0;
+}
+#credito #main1:hover{
+	background-color: #b71c1c;
 }
 a.block{
 	display: block;

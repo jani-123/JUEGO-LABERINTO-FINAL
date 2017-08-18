@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head> 
+<head>   
 	<meta charset="UTF-8">
 	<title>Play Lyft</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <link href='https://fonts.googleapis.com/css?family=Roboto Slab' rel='stylesheet'>
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
 
-	<!-- Compiled and minified CSS -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
-
-	<link rel="stylesheet" href="assets/css/main.css">
+	<link rel="stylesheet" href="assets/css/main.css"> 
 </head>
 <body>
 	<header class="">
@@ -53,16 +51,31 @@
 		<h2 class="h2-play">Play with Lyft</h2>
 		<div class="container">
 			<div id="tablero" align="center">
-				<p>ROAD BLOCKS</p>
+				<h3>ROAD BLOCKS</h3>
 			  	<button id="play">Play</button><br>
 			  	<button id="tutorial">Tutorial</button><br>
-			  	<div class="texto" display="none">
-			  	    
-
-			  		
+			  	<div id="tutoriales" style="display: none;">
+			  	   <h4>Instruccíones</h4>
+			  	   <p>RoadBlocks es un juego simple donde se intenta conseguir que la pelota llege a la meta.<br>
+			  	   Guia a la pelota con las teclas de flechas del teclado<br>la pelota seguira su trayectoria hasta que sea parada por una pared. Si la pelota sale de los bordes<br>del laberinto este automaticamente pierde y la bola regresa a su punto de inicio.<br>Supera los distintos niveles que cada vez van aumentando en complejidad<br>Asi que comiense el juego !GO!</p>
+			  	   <button id="main">Main</button>
 			  	</div>
 			  	<button id="creditos">Creditos</button>
-
+			  	<div id="credito" style="display: none;">
+			  	   <marquee direction="up"><h4>Credits</h4>
+			  	   <p>Creater By:<br>
+			  	   Evelyn Guevara<br>
+			  	   Janeth Quispe<br>
+			  	   Special Thanks To:<br>
+			  	   Laboratoria<br>
+			  	   Email:<br>
+			  	   rojaneth@hotmail.com<br>
+			  	   carina120794@gmail.com
+			  	   </p>
+			  	   </marquee>
+			  	   <button id="main1">Main</button>
+			  		
+			  	</div>
 			</div>
 				
 		</div>			
@@ -73,15 +86,16 @@
       <div class="row">
         <div class="col l6 s12">
           <h5 class="white-text">Sprint 3 - Project</h5>
-          <p class="grey-text text-lighten-4">You can custom the footer and its content</p>
+          <p class="grey-text text-lighten-4">ROAD-BLOCK juego de laberintos desarrollado<br>por
+          desarrolladoras en Front End jr</p>
         </div>
         <div class="col l4 offset-l2 s12">
-          <h5 class="white-text">Links</h5>
+          <h5 class="white-text">Explore</h5>
           <ul>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
-            <li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://www.w3schools.com/">w3schools</a></li>
+            <li><a class="grey-text text-lighten-3" href="http://librosweb.es/">LIBROSWEB</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://platzi.com/">Platzi</a></li>
+            <li><a class="grey-text text-lighten-3" href="https://www.codecademy.com/es">Codecademy</a></li>
           </ul>
         </div>
       </div>
@@ -89,10 +103,11 @@
     <div class="footer-copyright">
       <div class="container">
       © 2017 Lyft & Laboratoria, Inc
-      <a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+      <a class="grey-text text-lighten-4 right" href="#!">Open Source</a>
       </div>
     </div>
   </footer>
+
 	<script src="assets/js/main.js"></script>
 </body>
 </html>
